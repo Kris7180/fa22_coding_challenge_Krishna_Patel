@@ -22,6 +22,24 @@ router.get("/", async (req, res) => {
 
 /* CREATE 'PUT' REQUEST */
 
+router.put("/:_id", async (req, res) => {
+  try {
+    const task = await new Task.findByIdAndUpdate(req.params.id, {task: req.body});
+    res.send(task);
+  } catch (error) {
+    res.send(error);
+  }
+});
+
 /* CREATE 'DELETE' REQUEST */
+
+router.delete("/:_id", async (req, res) => {
+  try {
+    const task = await new Task.findByIdAndDelete(req.params.id);
+    res.send(task);
+  } catch (error) {
+    res.send(error);
+  }
+});
 
 module.exports = router;
