@@ -7,11 +7,23 @@ module.exports = async () => {
     };
     await mongoose.connect(
       /* CREATE & CONNECT TO YOUR OWN MONGODB DATABASE */
-      "",
-      connectionParams,
+      "mongodb+srv://krisPat:5LRY0CzLiVFUO6K0@cluster0.emqn6vu.mongodb.net/?retryWrites=true&w=majority",
+      {useNewUrlParser: true},
     );
+
     console.log("Connected to MongoDB");
   } catch (error) {
     console.log("Could not connect to database", error);
   }
 };
+
+
+
+/* mongoose.connect(
+  "mongodb+srv://krisPat:5LRY0CzLiVFUO6K0@cluster0.emqn6vu.mongodb.net/?retryWrites=true&w=majority",
+  {useNewUrlParser: true},
+);
+const conn = mongoose.connection;
+conn.once('open', () => {
+  console.log("Database connection established.");
+}) */
