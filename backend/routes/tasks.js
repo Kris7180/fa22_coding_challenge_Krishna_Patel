@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 router.post("/create", async (req, res) => {
+  console.log(req.body);
   try {
     const task = await new Task(req.body).save();
     res.send(task);
@@ -23,9 +24,10 @@ router.get("/", async (req, res) => {
 /* CREATE 'PUT' REQUEST */
 
 router.put("/:_id", async (req, res) => {
+  console.log(req.body)
   try {
-    const task = await new Task.findByIdAndUpdate(req.params.id, {task: req.body});
-    res.send(task);
+    const update = await Task.updateOne({_id: req.params._id}, {$set: req.body});
+    res.send(update);
   } catch (error) {
     res.send(error);
   }
@@ -34,11 +36,13 @@ router.put("/:_id", async (req, res) => {
 /* CREATE 'DELETE' REQUEST */
 
 router.delete("/:_id", async (req, res) => {
-  try {
-    const task = await new Task.findByIdAndDelete(req.params.id);
-    res.send(task);
-  } catch (error) {
-    res.send(error);
+  console.log(req.params._id)
+  try{
+    const result = await Task.deleteOne({_id: req.params._id});
+    res.send(result);
+  }
+  catch(err){
+    console.log(err);
   }
 });
 
