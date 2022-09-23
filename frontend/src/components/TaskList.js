@@ -27,7 +27,7 @@ const TaskList = () => {
         {tasks.length ? (
           tasks.map((task) => <Task key={task._id} task={task} />)
         ) : (
-          <p className='pt-5 text-center'>"No Tasks Created"</p>
+          <p className='pt-5 text-center'>No Tasks Created</p>
         )}
       </div>
     </div>

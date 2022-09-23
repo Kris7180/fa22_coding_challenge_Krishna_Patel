@@ -16,14 +16,3 @@ module.exports = async () => {
     console.log("Could not connect to database", error);
   }
 };
-
-
-
-/* mongoose.connect(
-  "mongodb+srv://krisPat:5LRY0CzLiVFUO6K0@cluster0.emqn6vu.mongodb.net/?retryWrites=true&w=majority",
-  {useNewUrlParser: true},
-);
-const conn = mongoose.connection;
-conn.once('open', () => {
-  console.log("Database connection established.");
-}) */
