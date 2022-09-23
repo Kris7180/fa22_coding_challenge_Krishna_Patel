@@ -36,7 +36,6 @@ router.put("/:_id", async (req, res) => {
 /* CREATE 'DELETE' REQUEST */
 
 router.delete("/:_id", async (req, res) => {
-  console.log(req.params._id)
   try{
     const result = await Task.deleteOne({_id: req.params._id});
     res.send(result);
